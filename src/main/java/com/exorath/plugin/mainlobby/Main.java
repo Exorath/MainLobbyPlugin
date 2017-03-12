@@ -19,6 +19,7 @@ package com.exorath.plugin.mainlobby;
 import com.exorath.plugin.base.ExoBaseAPI;
 import com.exorath.service.connector.res.BasicServer;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -32,16 +33,26 @@ import java.net.UnknownHostException;
  */
 public class Main extends JavaPlugin implements Listener{
     private ExoBaseAPI exoBaseAPI;
+    private FileConfiguration configuration;
     @Override
     public void onEnable() {
         exoBaseAPI = ExoBaseAPI.getInstance();
+        this.configuration = getConfig();
         try {
-            exoBaseAPI.setupGame(new BasicServer("lobby-main", "map1", "lobby"));
+            exoBaseAPI.setupGame(new BasicServer(getGameId(), "default", "lobby"));
         } catch (UnknownHostException e) {
             e.printStackTrace();
             Main.terminate();
         }
         getServer().getPluginManager().registerEvents(this, this);
+    }
+
+    private String getGameId(){
+        if(!configuration.contains("connector.gameId")){
+            System.out.println("MainLobbyPlugin config does not contain connector.gameId, exiting");
+            Main.terminate();
+        }
+        return configuration.getString("connector.gameId");
     }
 
 
