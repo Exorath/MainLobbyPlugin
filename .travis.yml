@@ -1,0 +1,15 @@
+language: java
+jdk:
+- oraclejdk8
+script: mvn clean package
+addons:
+  artifacts: true
+deploy:
+  provider: releases
+  api_key:
+    secure: pdRKcYnuuWsu5A+TTCXeFJEDcdjR562md7oO3lgh5eVEaOVPuipSY5E8Sr6YQIy5YdOA9zCtKHtI9w4WGcPytuININEFZzwGuz/oiKumA9MWu6ksu5266ggarB35CJw+rVifvyczLKpS9Q0WVO1BlTitMsXGLyNOOKFvebf50YjKe5dazauXH5bFNnBPumgKWRgNNgkxsaXMfypC3UVrTYnhzmCQ44ujm1jN96jPcwuMyzbcTz419eKKGz0qWJBHrKQ1bDrmDVaF0SwuDdVuHa7a1Ev6k2Yn/T0Gz75ub2HlzZlvJSN9GHRuEAZKpTw3GkBltRA8kYsRtNcAwAXegOYQZIemHoUlU84NuShrWi26Eaek/3EZPvChZJI1OfgBBfFkGCQWbHONUTdJGF9PqewFUG8VAo9vMHI1tkJzXrgVhuRYRXdXd6pMbkw70NbI8ZSmBDbAmwIADYLO6uHdk7kojW53eyk6gn+UTzGUPEFK4ud7b8DU0RwxExmEbYxp8TWVlyBETOaa8OfPNzoitQmcWgghVTga2Il4SVZgKti8uAhqpEXu5LyxKp2EFgGH/3JXV4nLgaYv621GViDf9ZcioSO10SHM+tQeFo9SUFIDPaVe+4uEzheD5JGVQjkp/x8dRKVZ05rI8KdKbcmanBR7kIBKSTyqKzWhuFJGilk=
+  file: target/*.jar
+  skip_cleanup: true
+  file_glob: true
+  on:
+    tags: false
