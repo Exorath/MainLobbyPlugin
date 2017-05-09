@@ -55,7 +55,7 @@ public class ScoreboardManager implements Listener{
                 new CompositeText(new ChatColorText(new PlainText("EXORATH")).color(ChatColor.WHITE).bold(true))
         };
         HudAPI.getInstance().getHudPlayer(event.getPlayer()).getScoreboardLocation().addTitle(
-                new IterateText(1, TimeUnit.SECONDS, Schedulers.io(), iterates),
+                new IterateText(300, TimeUnit.MILLISECONDS, Schedulers.io(), iterates),
                 DisplayProperties.create(0, NeverRemover.never()));
         HudAPI.getInstance().getHudPlayer(event.getPlayer()).getScoreboardLocation().addText(new PlainText("Some players online..."), DisplayProperties.create(0, NeverRemover.never()));
     }
