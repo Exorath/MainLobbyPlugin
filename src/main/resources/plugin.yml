@@ -1,4 +1,4 @@
 name: MainLobby
 version: 1.0.0
 main: com.exorath.plugin.mainlobby.Main
-depend: [ExoBase]
+depend: [ExoBase, ExoHUD]

@@ -93,5 +93,10 @@
             <version>f6a1372b0b</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.Exorath</groupId>
+            <artifactId>ExoHud</artifactId>
+            <version>1.0.8</version>
+        </dependency>
     </dependencies>
 </project>
